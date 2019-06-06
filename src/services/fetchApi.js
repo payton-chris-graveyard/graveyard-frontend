@@ -1,4 +1,4 @@
-// LINE 4 13 20 31
+// LINE 4 13 20
 
 export const getGraveyardList = () => {
   // return fetch('URL!!!!')
@@ -16,7 +16,7 @@ export const getGraveyardList = () => {
     })));
 };
 
-export const getGraveList = () => {
+export const getGraveList = graveyard => {
   // return fetch('URL!!!!')
     .then(res => ([res.ok, res.json()]))
     .then(([ok, json]) => {
@@ -27,8 +27,11 @@ export const getGraveList = () => {
       id: grave._id,
       occupied: grave.occupied,
       occupant: {
-        name: grave.occupant.name
-        // WHAT ELSE IS IN HERE??
+        name: grave.occupant.name,
+        dob: grave.occupant.dob,
+        dod: grave.occupant.dod,
+        causeOfDeath: grave.occupant.causeOfDeath,
+        epitaph: grave.occupant.epitaph
       },
       graveyard: grave.graveyard
     })));

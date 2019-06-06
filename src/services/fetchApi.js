@@ -1,5 +1,5 @@
 export const getGraveyardList = () => {
-  // return fetch('URL!!!!')
+  return fetch('http://ec2-34-216-8-225.us-west-2.compute.amazonaws.com:54321/api/v1/graveyards')
     .then(res => ([res.ok, res.json()]))
     .then(([ok, json]) => {
       if(!ok) throw 'Unable to fetch graveyard list';
@@ -8,9 +8,13 @@ export const getGraveyardList = () => {
     .then(json => json.map(graveyard => ({
       id: graveyard._id,
       name: graveyard.name,
-      // location: { LOOK_AT_OBJECT: 'OK' },
-      totalGraves: graveyard.totalGraves,
-      occupiedGraves: graveyard.occupiedGraves
+      location: { 
+        lat: graveyard.location.lat,
+        lat: graveyard.location.lng,
+        lat: graveyard.location.city,
+        lat: graveyard.location.state
+      },
+      totalGraves: graveyard.totalGraves
     })));
 };
 

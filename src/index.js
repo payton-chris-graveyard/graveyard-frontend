@@ -10,8 +10,3 @@ render(
   </Provider>,
   document.getElementById('root')
 );
-
-render(
-  <App />,
-  document.getElementById('root')
-);

@@ -1,5 +1,3 @@
-// LINE 4 13 20
-
 export const getGraveyardList = () => {
   // return fetch('URL!!!!')
     .then(res => ([res.ok, res.json()]))

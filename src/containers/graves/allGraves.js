@@ -37,9 +37,9 @@ const mapStateToProps = state => ({
   loading: getGraveListLoadingSelector(state)
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, props) => ({
   fetch() {
-    dispatch(fetchGraveList());
+    dispatch(fetchGraveList(props.match.params.id));
   }
 });
 

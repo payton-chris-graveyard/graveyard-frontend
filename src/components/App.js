@@ -1,22 +1,19 @@
 import React from 'react';
-import GraveList from './graves/GraveList';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+import AllGraves from '../containers/graves/AllGraves';
+import AllGraveyards from '../containers/graveyards/AllGraveyards';
 
 export default function App() {
-  const graveList = [
-    {
-      occupied: false,
-      occupant: {
-        name: 'Tom'
-      }
-    }, {
-      occupied: true,
-      occupant: {
-        name: 'Jerry'
-      }
-    }
-  ];
-
   return (
-    < GraveList graveList={graveList} />
+    <Router>
+      <Switch>
+        <Route exact path="/" component={AllGraveyards} />
+        <Route exact path="/graveyard/:id" component={AllGraves} />
+      </Switch>
+    </Router>
   );
 }

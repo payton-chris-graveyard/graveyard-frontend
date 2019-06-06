@@ -6,7 +6,7 @@ function Graveyard({ graveyard }) {
   return (
     <div>
       {/* <Link to={`/${graveyard.id}`}> */}
-        <p>{graveyard.name}</p>
+      <p>{graveyard.name}</p>
       {/* </Link> */}
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import UpdateGrave from '../../containers/graves/UpdateGrave';
 
-function GraveDetail({ graveDetail }) {
+function GraveDetails({ graveDetails }) {
   const {
     occupied,
     name,
@@ -11,7 +11,7 @@ function GraveDetail({ graveDetail }) {
     causeOfDeath,
     epitaph,
     graveyard
-  } = graveDetail;
+  } = graveDetails;
 
   if(!occupied) {
     return (
@@ -23,9 +23,9 @@ function GraveDetail({ graveDetail }) {
         <h2>{name}</h2>
         <h3>{graveyard}</h3>
         <ul>
-          <li>{dob}</li>
-          <li>{dod}</li>
-          <li>{causeOfDeath}</li>
+          <li>Date of Birth: {dob}</li>
+          <li>Date of Death: {dod}</li>
+          <li>Caust of Death: {causeOfDeath}</li>
         </ul>
         <p>{epitaph}</p>
       </section>
@@ -33,8 +33,8 @@ function GraveDetail({ graveDetail }) {
   }
 }
 
-GraveDetail.propTypes = {
-  graveDetail: PropTypes.object.isRequired
+GraveDetails.propTypes = {
+  graveDetails: PropTypes.object.isRequired
 };
 
-export default GraveDetail;
+export default GraveDetails;

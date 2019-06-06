@@ -1,5 +1,5 @@
 import React from 'react';
-import Grave from './graves/Grave';
+import GraveList from './graves/GraveList';
 
 export default function App() {
   // const graveyardList = [
@@ -12,14 +12,21 @@ export default function App() {
   //   }
   // ];
 
-  const grave = {
-    occupied: false,
-    occupant: {
-      name: 'Tom'
+  const graveList = [
+    {
+      occupied: false,
+      occupant: {
+        name: 'Tom'
+      }
+    }, {
+      occupied: true,
+      occupant: {
+        name: 'Jerry'
+      }
     }
-  };
+  ];
 
   return (
-    < Grave grave={grave} />
+    < GraveList graveList={graveList} />
   );
 }

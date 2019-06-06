@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateGrave } from '../../actions/updateGraveActions';
+import { updateGrave } from '../../actions/updateGraveAction';
 import GraveForm from '../../components/graves/GraveForm';
 
 const mapDispatchToProps = dispatch => ({

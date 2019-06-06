@@ -1,18 +1,25 @@
 import React from 'react';
-import GraveyardList from './graveyards/GraveyardList';
+import Grave from './graves/Grave';
 
 export default function App() {
-  const graveyardList = [
-    {
-      name: 'Motel 666',
-      id: '1abc'
-    }, {
-      name: 'Hotel California',
-      id: 'shoop3'
+  // const graveyardList = [
+  //   {
+  //     name: 'Motel 666',
+  //     id: '1abc'
+  //   }, {
+  //     name: 'Hotel California',
+  //     id: 'shoop3'
+  //   }
+  // ];
+
+  const grave = {
+    occupied: false,
+    occupant: {
+      name: 'Tom'
     }
-  ];
+  };
 
   return (
-    < GraveyardList graveyardList={graveyardList} />
+    < Grave grave={grave} />
   );
 }

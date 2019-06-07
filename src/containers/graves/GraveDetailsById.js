@@ -25,6 +25,7 @@ class GraveDetailsById extends PureComponent {
 
   render() {
     const { graveDetails, loading } = this.props;
+    console.log('container', graveDetails);
     if(loading) return <h1>Loading...</h1>;
     return <GraveDetails graveDetails={graveDetails} />;
   }

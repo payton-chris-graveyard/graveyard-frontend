@@ -16,7 +16,7 @@ export default function reducer(state = initialState, action) {
     case FETCH_GRAVE_LOADING:
       return { ...state, loading: true };
     case UPDATE_GRAVE:
-      return { ...state, graveDetail: { ...action.payload, occupied: true } };
+      return { ...state, graveDetail: { ...state.graveDetail, ...action.payload, occupied: true } };
     default:
       return state;
   }

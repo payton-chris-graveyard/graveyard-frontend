@@ -67,3 +67,22 @@ export const getGrave = id => {
       graveyard: grave.graveyard
     }));
 };
+
+// export const getGrave = graveDetails => {
+//   return fetch(`http://ec2-34-216-8-225.us-west-2.compute.amazonaws.com:54321/api/v1/graves/${id}`)
+//     .then(res => ([res.ok, res.json()]))
+//     .then(([ok, json]) => {
+//       if(!ok) throw 'Unable to fetch grave details';
+//       return json;
+//     })
+//     .then(grave => ({
+//       id: grave._id,
+//       occupied: grave.occupied,
+//       name: grave.occupant ? grave.occupant.name : '',
+//       dob: grave.occupant ? grave.occupant.dob : '',
+//       dod: grave.occupant ? grave.occupant.dod : '',
+//       causeOfDeath: grave.occupant ? grave.occupant.causeOfDeath : '',
+//       epitaph: grave.occupant ? grave.occupant.epitaph : '',
+//       graveyard: grave.graveyard
+//     }));
+// };

@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import Header from './display/Header';
 import AllGraveyards from '../containers/graveyards/AllGraveyards';
-// import AllGraves from '../containers/graves/AllGraves';
+import AllGraves from '../containers/graves/AllGraves';
 // import GraveDetailsById from '../containers/graves/GraveDetailsById';
 
 export default function App() {
@@ -15,8 +15,8 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={AllGraveyards} />
-        {/* <Route exact path="/:id" component={AllGraves} />
-        <Route exact path="/:graveyard/:id" component={GraveDetailsById} /> */}
+        <Route exact path="/:id" component={AllGraves} />
+        {/* <Route exact path="/:graveyard/:id" component={GraveDetailsById} /> */}
       </Switch>
     </Router>
   );

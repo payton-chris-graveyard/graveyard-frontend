@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-dom';
+import { connect } from 'react-redux';
 import {
   getGraveListSelector,
   getGraveListLoadingSelector
@@ -16,6 +16,7 @@ class AllGraves extends PureComponent {
   }
 
   componentDidMount() {
+    console.log('component mounted');
     this.props.fetch();
   }
 
@@ -33,7 +34,7 @@ class AllGraves extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  gaveList: getGraveListSelector(state),
+  graveList: getGraveListSelector(state),
   loading: getGraveListLoadingSelector(state)
 });
 

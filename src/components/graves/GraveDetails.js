@@ -12,10 +12,7 @@ function GraveDetails({ graveDetails }) {
     epitaph,
   } = graveDetails;
 
-  console.log(graveDetails);
-  
   if(!occupied) {
-    console.log('nobody');
     return (
       <UpdateGrave />
     );

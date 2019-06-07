@@ -19,9 +19,9 @@ class GraveDetailsById extends PureComponent {
     this.props.fetch();
   }
 
-  componentDidUpdate() {
-    // UPDATE FN
-  }
+  // componentDidUpdate() {
+  //   // UPDATE FN
+  // }
 
   render() {
     const { graveDetails, loading } = this.props;

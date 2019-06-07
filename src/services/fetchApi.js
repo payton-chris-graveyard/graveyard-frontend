@@ -28,7 +28,6 @@ export const getGraveList = id => {
     .then(json => {
       return Promise.all([json.name, json.graves]);
     })
-    // .then(res => console.log(res))
     .then(array => array[1].map(grave => {
       const graveObj = {
         graveyard: array[0],
@@ -50,39 +49,23 @@ export const getGraveList = id => {
     }));
 };
 
-
-// .then(json => json.graves)
-// .then(json => console.log('getGraveList fetch', json.graves))
-// .then(json => json.map(grave => ({
-//   id: grave._id,
-//   occupied: grave.graves.occupied,
-//   occupant: {
-//     name: grave.occupant.name,
-//     dob: grave.occupant.dob,
-//     dod: grave.occupant.dod,
-//     causeOfDeath: grave.occupant.causeOfDeath,
-//     epitaph: grave.occupant.epitaph
-//   },
-//   graveyard: grave.graveyard
-// })));
-
-// export const getGrave = id => {
-//   // return fetch('URL')
-//     .then(res => ([res.ok, res.json()]))
-//     .then(([ok, json]) => {
-//       if(!ok) throw 'Unable to fetch grave details';
-//       return json;
-//     })
-//     .then(grave => ({
-//       id: grave._id,
-//       occupied: grave.occupied,
-//       occupant: {
-//         name: grave.occupant.name,
-//         dob: grave.occupant.dob,
-//         dod: grave.occupant.dod,
-//         causeOfDeath: grave.occupant.causeOfDeath,
-//         epitaph: grave.occupant.epitaph
-//       },
-//       graveyard: grave.graveyard
-//     }))
-// };
+export const getGrave = id => {
+  return fetch(`http://ec2-34-216-8-225.us-west-2.compute.amazonaws.com:54321/api/v1/graves/${id}`)
+    .then(res => ([res.ok, res.json()]))
+    .then(([ok, json]) => {
+      if(!ok) throw 'Unable to fetch grave details';
+      return json;
+    })
+    .then(grave => ({
+      id: grave._id,
+      occupied: grave.occupied,
+      occupant: {
+        name: grave.occupant.name,
+        dob: grave.occupant.dob,
+        dod: grave.occupant.dod,
+        causeOfDeath: grave.occupant.causeOfDeath,
+        epitaph: grave.occupant.epitaph
+      },
+      graveyard: grave.graveyard
+    }));
+};

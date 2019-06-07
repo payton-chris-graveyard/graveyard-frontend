@@ -16,7 +16,6 @@ class AllGraves extends PureComponent {
   }
 
   componentDidMount() {
-    console.log('component mounted');
     this.props.fetch();
   }
 

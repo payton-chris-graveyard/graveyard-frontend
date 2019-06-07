@@ -10,7 +10,6 @@ function GraveDetails({ graveDetails }) {
     dod,
     causeOfDeath,
     epitaph,
-    graveyard
   } = graveDetails;
 
   if(!occupied) {
@@ -21,7 +20,6 @@ function GraveDetails({ graveDetails }) {
     return (
       <section>
         <h2>{name}</h2>
-        <h3>{graveyard}</h3>
         <ul>
           <li>Date of Birth: {dob}</li>
           <li>Date of Death: {dod}</li>

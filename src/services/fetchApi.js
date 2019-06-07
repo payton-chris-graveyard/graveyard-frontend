@@ -59,13 +59,13 @@ export const getGrave = id => {
     .then(grave => ({
       id: grave._id,
       occupied: grave.occupied,
-      occupant: {
-        name: grave.occupant.name,
-        dob: grave.occupant.dob,
-        dod: grave.occupant.dod,
-        causeOfDeath: grave.occupant.causeOfDeath,
-        epitaph: grave.occupant.epitaph
-      },
+      // occupant: {
+      name: grave.occupant.name,
+      dob: grave.occupant.dob,
+      dod: grave.occupant.dod,
+      causeOfDeath: grave.occupant.causeOfDeath,
+      epitaph: grave.occupant.epitaph,
+      // },
       graveyard: grave.graveyard
     }));
 };

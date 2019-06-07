@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Grave from './Grave';
+import './GraveList.css';
 
 function GraveList({ graveList }) {
   const listItem = graveList.map(grave => (

@@ -7,11 +7,11 @@ export default class GraveForm extends PureComponent {
   }
 
   state = {
-    name: this.name,
-    dob: this.dob,
-    dod: this.dod,
-    causeOfDeath: this.dod,
-    epitaph: this.epitaph
+    name: '',
+    dob: '',
+    dod: '',
+    causeOfDeath: '',
+    epitaph: ''
   }
 
   handleSubmit = event => {

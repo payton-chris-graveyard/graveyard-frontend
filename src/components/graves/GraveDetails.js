@@ -13,6 +13,7 @@ function GraveDetails({ graveDetails }) {
   } = graveDetails;
 
   if(!occupied) {
+    console.log('nobody');
     return (
       <UpdateGrave />
     );

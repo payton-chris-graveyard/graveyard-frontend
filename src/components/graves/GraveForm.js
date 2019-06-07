@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+// import { patchGrave } from '../../services/fetchApi';
 
 export default class GraveForm extends PureComponent {
   static propTypes = {
@@ -11,13 +12,16 @@ export default class GraveForm extends PureComponent {
     dob: '',
     dod: '',
     causeOfDeath: '',
-    epitaph: ''
+    epitaph: '',
   }
 
   handleSubmit = event => {
     event.preventDefault();
     const { name, dob, dod, causeOfDeath, epitaph } = this.state;
     this.props.onSubmit(name, dob, dod, causeOfDeath, epitaph);
+    // patchGrave(this.state);
+    // console.log('hihii');
+    console.log('GraveForm.js', this.state);
   }
 
   handleChange = ({ target }) => {

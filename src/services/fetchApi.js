@@ -25,21 +25,43 @@ export const getGraveList = id => {
       if(!ok) throw 'Unable to fetch grave list';
       return json;
     })
-    // .then(json => json.graves)
-    .then(json => console.log('getGraveList fetch', json))
-    .then(json => json.map(grave => ({
-      id: grave._id,
-      occupied: grave.graves.occupied,
-      occupant: {
-        name: grave.occupant.name,
-        dob: grave.occupant.dob,
-        dod: grave.occupant.dod,
-        causeOfDeath: grave.occupant.causeOfDeath,
-        epitaph: grave.occupant.epitaph
-      },
-      graveyard: grave.graveyard
-    })));
+    .then(json => {
+      return Promise.all([json.name, json.graves]);
+    })
+    // .then(res => console.log(res))
+    .then(array => array[1].map(grave => {
+      console.log('grave', grave);
+      return ({
+        graveyard: array[0],
+        id: grave._id,
+        occupied: grave.occupied,
+        // occupant: {
+        //   name: grave.occupant.name,
+        //   dob: grave.occupant.dob,
+        //   dod: grave.occupant.dod,
+        //   causeOfDeath: grave.occupant.causeOfDeath,
+        //   epitaph: grave.occupant.epitaph
+        // }
+      });
+    }))
+    .then(oi => console.log('finished', oi));
 };
+
+
+// .then(json => json.graves)
+// .then(json => console.log('getGraveList fetch', json.graves))
+// .then(json => json.map(grave => ({
+//   id: grave._id,
+//   occupied: grave.graves.occupied,
+//   occupant: {
+//     name: grave.occupant.name,
+//     dob: grave.occupant.dob,
+//     dod: grave.occupant.dod,
+//     causeOfDeath: grave.occupant.causeOfDeath,
+//     epitaph: grave.occupant.epitaph
+//   },
+//   graveyard: grave.graveyard
+// })));
 
 // export const getGrave = id => {
 //   // return fetch('URL')

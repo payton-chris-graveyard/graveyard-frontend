@@ -30,21 +30,24 @@ export const getGraveList = id => {
     })
     // .then(res => console.log(res))
     .then(array => array[1].map(grave => {
-      console.log('grave', grave);
-      return ({
+      const graveObj = {
         graveyard: array[0],
         id: grave._id,
-        occupied: grave.occupied,
-        // occupant: {
-        //   name: grave.occupant.name,
-        //   dob: grave.occupant.dob,
-        //   dod: grave.occupant.dod,
-        //   causeOfDeath: grave.occupant.causeOfDeath,
-        //   epitaph: grave.occupant.epitaph
-        // }
-      });
-    }))
-    .then(oi => console.log('finished', oi));
+        occupied: grave.occupied
+      };
+
+      if(grave.occupant) {
+        graveObj.occupant = {
+          name: grave.occupant.name,
+          dob: grave.occupant.dob,
+          dod: grave.occupant.dod,
+          causeOfDeath: grave.occupant.causeOfDeath,
+          epitaph: grave.occupant.epitaph
+        };
+      }
+
+      return graveObj;
+    }));
 };
 
 

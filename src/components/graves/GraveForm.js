@@ -1,10 +1,13 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-// import { patchGrave } from '../../services/fetchApi';
+import { connect } from 'react-redux';
+import { patchGraveSelector } from '../../selectors/patchGraveSelectors';
+import { patchGrave } from '../../services/fetchApi';
 
-export default class GraveForm extends PureComponent {
+class GraveForm extends PureComponent {
   static propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
+    graveDetail: PropTypes.object.isRequired
   }
 
   state = {
@@ -12,16 +15,20 @@ export default class GraveForm extends PureComponent {
     dob: '',
     dod: '',
     causeOfDeath: '',
-    epitaph: '',
+    epitaph: ''
   }
 
   handleSubmit = event => {
     event.preventDefault();
     const { name, dob, dod, causeOfDeath, epitaph } = this.state;
     this.props.onSubmit(name, dob, dod, causeOfDeath, epitaph);
-    // patchGrave(this.state);
-    // console.log('hihii');
-    console.log('GraveForm.js', this.state);
+    const graveObj = {
+      id: this.props.graveDetail.id,
+      ...this.state,
+      occupied: true
+    };
+    // console.log(graveObj);
+    patchGrave(graveObj);
   }
 
   handleChange = ({ target }) => {
@@ -42,3 +49,12 @@ export default class GraveForm extends PureComponent {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  graveDetail: patchGraveSelector(state)
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(GraveForm);

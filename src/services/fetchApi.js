@@ -69,30 +69,30 @@ export const getGrave = id => {
 };
 
 export const patchGrave = graveDetail => {
-  return fetch(`http://ec2-34-216-8-225.u-west-2.compute.amazonaws.com:54321/api/v1/graves/${graveDetail.id}`, {
+  return fetch(`http://ec2-34-216-8-225.us-west-2.compute.amazonaws.com:54321/api/v1/graves/${graveDetail.id}`, {
     method: 'PATCH',
-    mode: 'cors',
+    // mode: 'cors',
     headers: {
       'Content-Type': 'application/json'
     },
     redirect: 'follow',
     body: JSON.stringify(graveDetail)
   })
-    .then(res => console.log(res))
+    .then(res => res);
     
-    .then(res => ([res.ok, res.json()]))
-    .then(([ok, json]) => {
-      if(!ok) throw 'Unable to fetch grave details';
-      return json;
-    })
-    .then(grave => ({
-      id: grave._id,
-      occupied: grave.occupied,
-      name: grave.occupant ? grave.occupant.name : '',
-      dob: grave.occupant ? grave.occupant.dob : '',
-      dod: grave.occupant ? grave.occupant.dod : '',
-      causeOfDeath: grave.occupant ? grave.occupant.causeOfDeath : '',
-      epitaph: grave.occupant ? grave.occupant.epitaph : '',
-      graveyard: grave.graveyard
-    }));
+  // .then(res => ([res.ok, res.json()]))
+  // .then(([ok, json]) => {
+  //   if(!ok) throw 'Unable to fetch grave details';
+  //   return json;
+  // })
+  // .then(grave => ({
+  //   id: grave._id,
+  //   occupied: grave.occupied,
+  //   name: grave.occupant ? grave.occupant.name : '',
+  //   dob: grave.occupant ? grave.occupant.dob : '',
+  //   dod: grave.occupant ? grave.occupant.dod : '',
+  //   causeOfDeath: grave.occupant ? grave.occupant.causeOfDeath : '',
+  //   epitaph: grave.occupant ? grave.occupant.epitaph : '',
+  //   graveyard: grave.graveyard
+  // }));
 };

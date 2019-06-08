@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import UpdateGrave from '../../containers/graves/UpdateGrave';
+import ClearGraveDetails from './ClearGraveDetails';
 
 function GraveDetails({ graveDetails }) {
   const {
@@ -26,6 +27,7 @@ function GraveDetails({ graveDetails }) {
           <li>Caust of Death: {causeOfDeath}</li>
         </ul>
         <p>{epitaph}</p>
+        <ClearGraveDetails />
       </section>
     );
   }

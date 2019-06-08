@@ -7,6 +7,7 @@ import {
   getGraveDetailSelectorLoading
 } from '../../selectors/graveDetailSelectors';
 import { fetchGrave } from '../../actions/getGraveDetailAction';
+// import { patchGraveSelector } from '../../selectors/patchGraveSelectors';
 
 class GraveDetailsById extends PureComponent {
   static propTypes = {
@@ -32,7 +33,8 @@ class GraveDetailsById extends PureComponent {
 
 const mapStateToProps = state => ({
   graveDetails: getGraveDetailSelector(state),
-  loading: getGraveDetailSelectorLoading(state)
+  loading: getGraveDetailSelectorLoading(state),
+  // graveDetail: patchGraveSelector(state)
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

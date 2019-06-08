@@ -7,7 +7,6 @@ import {
 } from '../../selectors/graveListSelectors';
 import GraveList from '../../components/graves/GraveList';
 import { fetchGraveList } from '../../actions/getGraveListAction';
-import { patchGraveSelector } from '../../selectors/patchGraveSelectors';
 
 class AllGraves extends PureComponent {
   static propTypes = {
@@ -35,8 +34,7 @@ class AllGraves extends PureComponent {
 
 const mapStateToProps = state => ({
   graveList: getGraveListSelector(state),
-  loading: getGraveListLoadingSelector(state),
-  graveDetail: patchGraveSelector(state)
+  loading: getGraveListLoadingSelector(state)
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

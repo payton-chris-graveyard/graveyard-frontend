@@ -79,20 +79,4 @@ export const patchGrave = graveDetail => {
     body: JSON.stringify(graveDetail)
   })
     .then(res => res);
-    
-  // .then(res => ([res.ok, res.json()]))
-  // .then(([ok, json]) => {
-  //   if(!ok) throw 'Unable to fetch grave details';
-  //   return json;
-  // })
-  // .then(grave => ({
-  //   id: grave._id,
-  //   occupied: grave.occupied,
-  //   name: grave.occupant ? grave.occupant.name : '',
-  //   dob: grave.occupant ? grave.occupant.dob : '',
-  //   dod: grave.occupant ? grave.occupant.dod : '',
-  //   causeOfDeath: grave.occupant ? grave.occupant.causeOfDeath : '',
-  //   epitaph: grave.occupant ? grave.occupant.epitaph : '',
-  //   graveyard: grave.graveyard
-  // }));
 };
